@@ -1,0 +1,48 @@
+########################################################################
+#		   Instalando Ansible em Docker no CentOS 7					   #
+########################################################################
+
+- Instala o CentOS 7 na versão Minimal
+- Atualiza o CentOS:
+yum -y update
+
+- Instala o net-tools:
+yum intall net-tools
+
+- Desabilita o firewall:
+
+systemctl disable firewalld
+systemctl stop firewalld
+
+- Desabilita o SELINUX:
+setenforce 0
+
+- Instala o repositório do EPEL:
+yum install -y epel-release
+
+- Intala Git, Ansible, Docker, gettext, Python, GCC e bzip:
+yum install -y git ansible docker gettext python-pip gcc-c++ bzip2
+
+- Inicia o Docker:
+systemctl start docker
+systemctl enable docker
+
+- 
+pip install --upgrade pip
+pip install docker-py
+curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
+yum install -y nodejs
+npm install npm@latest -g
+git clone https://github.com/ansible/awx.git
+cd awx/installer
+ansible-playbook -i inventory install.yml
+
+Se der erro
+pip uninstall docker docker-py docker-compose
+pip install docker-compose
+ansible-playbook -i inventory install.yml
+
+
+Fonte: 
+https://janssenlima.blogspot.com/2017/09/instalando-ansible-awx-em-imagem-docker.html
+
