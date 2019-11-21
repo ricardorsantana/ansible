@@ -1,9 +1,17 @@
 Anotações do curso de Ansible da UDEMY - https://www.udemy.com/course/ansible-para-sysadmin/
 
-1. Apresentação
-    Apresentação do curso.
-    
-2. Introdução ao Ansible
+- Playbook
+Conjunto de regras escritas em yaml
+é um arquivo com a extenção .yml
 
-  
- 
+- Inventory
+cadastro dos hosts e dados para acesso a eles 
+(as senhas ficam expostas)
+
+
+Ansible usa o Python na versao 2 nativamente, mas suporta versoes superiores
+Ele procura o interpretador em /usr/bin/python
+	variavel: ansible_python_interpreter
+
+
+
