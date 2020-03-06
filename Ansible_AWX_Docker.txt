@@ -7,7 +7,7 @@
 yum -y update
 
 - Instala o net-tools:
-yum intall net-tools
+yum install net-tools
 
 - Desabilita o firewall:
 
