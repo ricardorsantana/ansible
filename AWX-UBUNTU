@@ -1,0 +1,52 @@
+
+## Anotações sobre instalar o AWX no Ubuntu
+# talvez ela não esteja completa, precisa rever isso
+# recomendo subir o ubuntu em uma VM e testar.
+
+
+- Atualiza o SO:
+sudo apt update -y
+sudo apt upgrade -y
+
+- Instalar o Ansible:
+
+sudo apt-get install ansible
+sudo ansible --version
+
+- Instalar o docker:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo docker version
+
+- Instalar o docker-compose:
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+sudo docker-compose version
+
+- Instala as dependencias 
+# Git, Ansible, wget, unzip, Docker, gettext, Python-pip e GCC:
+sudo apt install -y git ansible wget unzip docker gettext python-pip python3-pip gcc-c++
+sudo ansible --version
+
+- Instalar o AWX:
+wget https://github.com/ansible/awx/archive/17.1.0.zip
+unzip 17.1.0.zip
+cd awx-17.1.0/installer
+vi inventory
+
+# Localiza a linha, tira o comentário "#" da linha admin_passowrd e troca a senha de admin:
+admin_user=admin
+admin_password=<Strong-Admin-password>
+
+- Roda o playbook de instalação:
+ansible-playbook -i inventory install.yml
+
+- Acessa o AWX via WEB:
+http://127.0.0.1/#/login
+
+
+Fontes:
+https://www.linuxtechi.com/install-ansible-awx-on-ubuntu/
+https://linuxways.net/ubuntu/how-to-install-awx-on-ubuntu-20-04/
+https://www.linkedin.com/pulse/construindo-ansible-awx-tower-com-docker-braier-alves/?articleId=6631512120062210049
+
+
+
