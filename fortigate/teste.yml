@@ -1,6 +1,5 @@
 ---
-#- hosts: fortigate
-- hosts: Firewall_Tivit
+- hosts: fortigate
   gather_facts: no
 
   tasks:
