@@ -1,6 +1,6 @@
 ---
 #- hosts: fortigate
-- hosts: '{{Firewall_Tivit}}'
+- hosts: localhost
   gather_facts: no
 
   tasks:
