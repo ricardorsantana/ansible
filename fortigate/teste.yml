@@ -1,0 +1,14 @@
+---
+- hosts: fortigate
+  gather_facts: no
+
+  tasks:
+  - name: TESTE 1
+    raw: |
+      get hardware status | grep 'Model name'
+    register: teste
+
+  - debug:
+      msg: Nome do Device '{{item.stdout_lines[0]}}'
+    with_items:
+     - "{{teste}}"

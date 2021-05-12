@@ -1,0 +1,9 @@
+[fortigate]
+fortigate01 ansible_hosts=10.144.20.22
+
+[fortigate:vars]
+#ansible_connection=local
+ansible_user=admin
+ansible_password=123@mudar
+ansible_port=22
+
